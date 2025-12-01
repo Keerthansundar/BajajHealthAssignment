@@ -74,7 +74,7 @@ public class AssignmentService {
     public void execute() {
         log.info("Starting HealthRx assignment for name={}, regNo={}", name, regNo);
 
-        // 1. Call generateWebhook API
+        
         GenerateWebhookRequest requestBody = new GenerateWebhookRequest(name, regNo, email);
 
         HttpHeaders headers = new HttpHeaders();
@@ -116,7 +116,6 @@ public class AssignmentService {
 
         log.info("Final SQL query:\n{}", FINAL_SQL_QUERY);
 
-        // 2. Submit finalQuery to webhook with Authorization: Bearer <accessToken>
         FinalQueryRequest finalQueryRequest = new FinalQueryRequest(FINAL_SQL_QUERY);
 
         HttpHeaders submitHeaders = new HttpHeaders();
